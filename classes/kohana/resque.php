@@ -10,7 +10,7 @@
 	class Kohana_Resque {
 
 			public function __construct ( $server = "localhost", $port = 6379 ) {
-					$this->redis = new Redisent( $server, $port );
+					$this->redis = new redisent\Redis( $server, $port );
 			}
 			
 			public function enqueue ( $queue, $class, $args = null ) {
