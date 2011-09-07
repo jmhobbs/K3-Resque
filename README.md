@@ -25,3 +25,10 @@ Usage
     $r->enqueue( 'test', 'ResqueClass', 5 );
     $r->enqueue( 'other', 'AnotherClass', array( 'lots', 'of', 'args' ) );
 
+
+Credits
+-------
+
+K3-Resque is based on [Resque](https://github.com/defunkt/resque) and [PyRes](https://github.com/binarydud/pyres).
+
+It uses [Redisent](https://github.com/jdp/redisent) internally.

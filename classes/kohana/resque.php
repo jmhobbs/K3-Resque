@@ -31,6 +31,38 @@
 					);
 
 			}
-			
+
+			public function queues () {
+				return $this->redis->smembers( 'resque:queues' );
+			}
+
+			public function queue_size ( $queue ) {
+				return $this->redis->llen( 'resque:queue:' . $queue );
+			}
+
+			public function failed_queue_size () {
+				return $this->redis->llen( 'resque:failed' );
+			}
+
+			public function workers () {
+				return $this->redis->smembers( 'resque:workers' );
+			}
+
+			public function working ( $worker ) {
+				return ( null != $this->redis->get( 'resque:worker:' . $worker ) );
+			}
+
+			public function stat ( $name ) {
+				return $this->redis->get( 'resque:stat:' . $name );
+			}
+
+			public function total_processed () {
+				return $this->stat( 'processed' );
+			}
+
+			public function total_failed () {
+				return $this->stat( 'failed' );
+			}
+
 	}
 
